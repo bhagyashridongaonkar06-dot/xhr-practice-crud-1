@@ -1,0 +1,21 @@
+h3{  
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-wrap: nowrap;   
+
+}
+
+.spinner{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(255,255,255,0.66);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+.col-md-3{
+    border: 2px solid green;
+}
+
