@@ -74,7 +74,7 @@ function fetchPosts(){
         postArr  =JSON.parse(xhr.response) ;
                     
         createCard(postArr); 
-        snackbar('data fetched successfully', 'success')  
+        //snackbar('data fetched successfully', 'success')  
                 
         }else{ 
             console.log('api is failed...!')  
@@ -134,7 +134,7 @@ function onPostSubmit(eve){
              let postContainer = document.getElementById('postContainer');
                 postContainer.prepend(col); 
                 spinner.classList.add('d-none');
-                snackbar('Post created successfully!!', 'success') 
+                //snackbar('Post created successfully!!', 'success') 
                 
             
             
@@ -224,9 +224,11 @@ spinner.classList.remove('d-none')
             p.innerText= updateObj.body; 
             spinner.classList.add('d-none');  
 
-         console.log(res); 
-        snackbar('Data Updated successfully!!', 'success') 
+            snackbar('Data Updated successfully!!', 'success') 
 
+
+         console.log(res); 
+    
          document.querySelectorAll('.btn-outline-danger').forEach(btn=>{
             btn.disabled == false;
         })
