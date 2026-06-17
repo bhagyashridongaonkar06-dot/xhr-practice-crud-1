@@ -13,9 +13,9 @@ h3{
     display: flex;
     justify-content: center;
     align-items: center;
-} 
+}
 
-.col-md-3{
+.col-md-4{
     border: 2px solid green;
 }
 
