@@ -47,7 +47,7 @@ function createCard(arr){
                     </div>
                 </div>   `
     })
-    postContainer.innerHTML = result ;
+    postContainer.innerHTML = result;
 }
 
 
