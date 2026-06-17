@@ -8,6 +8,8 @@ h3{
 .spinner{
     height: 100%;
     width: 100%;
+    top: 0;
+    left: 0;
     background-color: rgb(255,255,255,0.66);
     position: fixed;
     display: flex;
@@ -15,7 +17,16 @@ h3{
     align-items: center;
 }
 
-.col-md-4{
-    border: 2px solid green;
+body{
+    background-color: thistle;
+}
+/* h2{
+    background-color: darkcyan;
+    text-align :center;
+    font-weight: bolder;
+font-size: large;
+}*/
+.post{
+    background-color: papayawhip;
 }
 

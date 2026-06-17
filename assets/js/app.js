@@ -33,7 +33,7 @@ function createCard(arr){
 
     arr.forEach(ele=>{ 
         result +=`<div class="col-md-6 mb-4" id="${ele.id}">
-                    <div class="card">
+                    <div class="card h-100">
                         <div class="card-header">
                             <H3>${ele.title} </H3>                           
                         </div>
@@ -74,11 +74,15 @@ function fetchPosts(){
         postArr  =JSON.parse(xhr.response) ;
                     
         createCard(postArr); 
-        //snackbar('data fetched successfully', 'success')  
+        //snackbar('data fetched successfully', 'success')
+        spinner.classList.add('d-none');
+
                 
         }else{ 
             console.log('api is failed...!')  
             snackbar('API failed', 'error') 
+            spinner.classList.remove('d-none');
+
         }
             
     } 
@@ -160,7 +164,7 @@ function onEdit(ele){
         // let editObj = postArr.find(post =>post) 
         let Edit_url = `${base_url}/posts/${editId}`;
         document.querySelectorAll('.btn-outline-danger').forEach(btn=>{
-            btn.disabled == true;
+            btn.disabled = true;
         })
   
         let xhr  = new XMLHttpRequest(); 
@@ -239,7 +243,7 @@ spinner.classList.remove('d-none')
 
             snackbar('Data Updated successfully!!', 'success');
             document.querySelectorAll('.btn-outline-danger').forEach(btn=>{
-            btn.disabled == false;
+            btn.disabled = false;
         })
 
          console.log(res);
