@@ -182,11 +182,11 @@ function onEdit(ele){
                
             addPostBtn.classList.add('d-none'); 
             updatePostBtn.classList.remove('d-none');  
-            spinner.classList.add('d-none')
+            spinner.classList.add('d-none');
 
             }else{ 
                 snackbar('Unable to patch the data', 'error');
-                spinner.classList.add('d-none')
+                spinner.classList.add('d-none');
 
             }
         } 
@@ -217,24 +217,35 @@ spinner.classList.remove('d-none')
       if(xhr.status>=200 && xhr.status<=299){ 
        let res = xhr.response; 
         let col= document.getElementById(updateId); 
-        let h3= col.querySelector('.card-header h3')
-            h3.innerText= updateObj.title;
+        col.innerHTML  = 
+                            `<div class="card">
+                                <div class="card-header">
+                                    <h3>${updateObj.title} </h3>                           
+                                </div>
+                                <div class="card-body">
+                                    <p>${updateObj.body}</p>
+                                </div>
+                                <div class="card-footer d-flex justify-content-between">
+                                  <button onclick="onEdit(this)" class="btn btn-inline-block btn-outline-primary">Edit</button>
+                                  <button onclick="onRemove(this)" class="btn btn-inline-block btn-outline-danger">Delete</button>
+                                </div>
+                            </div>` 
+        // let h3= col.querySelector('.card-header h3')
+        //     h3.innerText= updateObj.title;
            
-        let p= col.querySelector('.card-header p')
-            p.innerText= updateObj.body; 
+        // let p= col.querySelector('.card-header p')
+        //     p.innerText= updateObj.body; 
             spinner.classList.add('d-none');  
 
-            snackbar('Data Updated successfully!!', 'success') 
-
-
-         console.log(res); 
-    
-         document.querySelectorAll('.btn-outline-danger').forEach(btn=>{
+            snackbar('Data Updated successfully!!', 'success');
+            document.querySelectorAll('.btn-outline-danger').forEach(btn=>{
             btn.disabled == false;
         })
+
+         console.log(res);
   
         }else{ 
-        snackbar('Unable to update data!!', 'error') 
+        snackbar('Unable to update data!!', 'error');
         spinner.classList.add('d-none');   
         }
     }  
@@ -269,7 +280,7 @@ function onRemove(ele){
                ele.closest('.col-md-6').remove();
                spinner.classList.add('d-none');
             }else{
-                snackbar('Not  deleted','error')
+                snackbar('Not  deleted','error');
                 spinner.classList.add('d-none');
             } 
         }
@@ -278,4 +289,4 @@ function onRemove(ele){
 
 
 postForm.addEventListener('submit', onPostSubmit)
- 
+updatePostBtn.addEventListener('click', onUpdate) 
